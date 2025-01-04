@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 
 const App = () => {
   const [magnetPosition, setMagnetPosition] = useState({ x: 100, y: 300 });
+  const [resetPositions, setResetPositions] = useState(false); // New state to reset People positions
 
   // Define motion values explicitly for each person
   const motionValues = [
@@ -40,19 +41,36 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    motionValues.forEach((values, index) => {
-      values.x.set(
-        magnetPosition.x +
-          (index % 2 === 0 ? 50 : -50) + // Add offset for variety
-          index * 10
-      );
-      values.y.set(
-        magnetPosition.y +
-          30 * index + // Staggered vertical positions
-          Math.sin(index * 0.5) * 20
-      );
-    });
-  }, [magnetPosition]);
+    // When resetPositions is true, reset motion values to the starting point on the right
+    if (resetPositions) {
+      motionValues.forEach((values, index) => {
+        values.x.set(1200); // Reset x position to the far right
+        values.y.set(200 + index * 100); // Staggered vertical reset
+      });
+
+      // Disable reset after applying it
+      setResetPositions(false);
+    } else {
+      // Normal attraction logic
+      motionValues.forEach((values, index) => {
+        values.x.set(
+          magnetPosition.x +
+            (index % 2 === 0 ? 50 : -50) + // Add offset for variety
+            index * 10
+        );
+        values.y.set(
+          magnetPosition.y +
+            30 * index + // Staggered vertical positions
+            Math.sin(index * 0.5) * 20
+        );
+      });
+    }
+  }, [magnetPosition, resetPositions]); // Trigger on position updates or reset
+
+  // Function to handle click on the Magnet
+  const handleMagnetClick = () => {
+    setResetPositions(true); // Trigger reset positions
+  };
 
   return (
     <Router>
@@ -72,7 +90,15 @@ const App = () => {
           }}
         >
           {/* Magnet */}
-          <Magnet />
+          <div
+            style={{
+              pointerEvents: "auto", // Allow clicks on the Magnet
+              cursor: "pointer",
+            }}
+            onClick={handleMagnetClick} // Reset positions on click
+          >
+            <Magnet />
+          </div>
 
           {/* People */}
           {motionValues.map((values, index) => (
