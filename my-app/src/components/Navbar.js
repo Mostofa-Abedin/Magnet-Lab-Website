@@ -1,4 +1,5 @@
 import React from "react";
+import magnetLogo from "../Images/magnet_bg_removed.png"; // Adjust the path based on where your logo is stored
 
 const Navbar = () => {
   return (
@@ -15,7 +16,24 @@ const Navbar = () => {
         color: "#fff",
       }}
     >
-      <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Magnet Labs</div>
+      {/* Logo and Name */}
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={magnetLogo}
+          alt="Magnet Logo"
+          style={{
+            width: "40px",
+            height: "40px",
+            marginRight: "0.5rem",
+            objectFit: "contain",
+          }}
+        />
+        <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+          Magnet Labs
+        </span>
+      </div>
+
+      {/* Navigation Links */}
       <div>
         <a href="#services" style={{ margin: "0 1rem", color: "#fff" }}>
           Our Services
