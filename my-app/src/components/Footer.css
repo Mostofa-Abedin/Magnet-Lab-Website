@@ -1,0 +1,44 @@
+/* Container Styling */
+.footer-container {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.9));
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Social Icons Container */
+  .social-icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Social Icon Default Styling */
+  .social-icon {
+    color: #fff; /* Default icon color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Hover Effects */
+  .social-icon.facebook:hover {
+    color: #4267B2; /* Facebook Blue */
+  }
+  
+  .social-icon.instagram:hover {
+    color: #E1306C; /* Instagram Pink */
+  }
+  
+  .social-icon.linkedin:hover {
+    color: #0077B5; /* LinkedIn Blue */
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2); /* Enlarge icon on hover */
+  }
+  

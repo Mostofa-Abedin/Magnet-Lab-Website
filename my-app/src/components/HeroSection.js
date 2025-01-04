@@ -7,8 +7,8 @@ const HeroSection = () => {
         position: "relative",
         height: "100vh",
         width: "100%",
-        backgroundColor: "#000",
-        overflow: "hidden", // Prevents scrolling if the video overflows
+        backgroundColor: "black",
+        overflow: "hidden",
       }}
     >
       {/* Background Video */}
@@ -24,7 +24,7 @@ const HeroSection = () => {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          zIndex: 1, // Keep video in the background
+          zIndex: 1,
         }}
       >
         <source src="/Bg_video.mp4" type="video/mp4" />
@@ -34,8 +34,8 @@ const HeroSection = () => {
       {/* Overlay Content */}
       <div
         style={{
-          position: "relative", // Ensures this div is above the video
-          zIndex: 2, // Higher than video
+          position: "relative",
+          zIndex: 2,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -46,10 +46,23 @@ const HeroSection = () => {
           padding: "0 2rem",
         }}
       >
-        <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>
+        <h1
+          style={{
+            fontSize: "3.5rem",
+            fontWeight: "bold",
+            fontFamily: "'Poppins', sans-serif",
+            textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)",
+          }}
+        >
           The Art of Digital Attraction
         </h1>
-        <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            marginTop: "1rem",
+            fontFamily: "'Montserrat', sans-serif",
+          }}
+        >
           We craft solutions that attract, engage, and convert.
         </p>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, useMotionValue } from "framer-motion";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -8,6 +9,11 @@ import ContactTeaser from "./components/ContactTeaser";
 import Footer from "./components/Footer";
 import Magnet from "./components/Magnet";
 import People from "./components/People";
+
+// Import pages for routing
+import Services from "./pages/Services";
+import Work from "./pages/Work";
+import Contact from "./pages/Contact";
 
 const App = () => {
   const [magnetPosition, setMagnetPosition] = useState({ x: 100, y: 300 });
@@ -49,51 +55,73 @@ const App = () => {
   }, [magnetPosition]);
 
   return (
-    <div>
-      <Navbar />
+    <Router>
+      <div>
+        <Navbar />
 
-      {/* Overlayed Animation */}
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none", // Allow clicks to pass through
-          zIndex: 10, // Ensure it's above all other content
-        }}
-      >
-        {/* Magnet */}
-        <Magnet />
+        <Routes>
+          {/* Home Route */}
+          <Route
+            path="/"
+            element={
+              <>
+                {/* Overlayed Animation */}
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    pointerEvents: "none", // Allow clicks to pass through
+                    zIndex: 10, // Ensure it's above all other content
+                  }}
+                >
+                  {/* Magnet */}
+                  <Magnet />
 
-        {/* People */}
-        {motionValues.map((values, index) => (
-          <motion.div
-            key={index}
-            style={{
-              position: "absolute",
-              width: 80,
-              height: 80,
-            }}
-            animate={{
-              x: values.x.get(),
-              y: values.y.get(),
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <People index={index} />
-          </motion.div>
-        ))}
+                  {/* People */}
+                  {motionValues.map((values, index) => (
+                    <motion.div
+                      key={index}
+                      style={{
+                        position: "absolute",
+                        width: 80,
+                        height: 80,
+                      }}
+                      animate={{
+                        x: values.x.get(),
+                        y: values.y.get(),
+                      }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                      <People index={index} />
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Hero and Teaser Sections */}
+                <HeroSection />
+                <ServicesTeaser />
+                <WorkTeaser />
+                <ContactTeaser />
+              </>
+            }
+          />
+
+          {/* Services Page */}
+          <Route path="/services" element={<Services />} />
+
+          {/* Work Page */}
+          <Route path="/work" element={<Work />} />
+
+          {/* Contact Page */}
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
+        <Footer />
       </div>
-
-      {/* Website Sections */}
-      <HeroSection />
-      <ServicesTeaser />
-      <WorkTeaser />
-      <ContactTeaser />
-      <Footer />
-    </div>
+    </Router>
   );
 };
 

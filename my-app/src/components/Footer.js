@@ -1,25 +1,32 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import "./Footer.css"; // Import the external CSS for styling
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: "#222",
-        color: "#fff",
-        padding: "1rem",
-        textAlign: "center",
-      }}
-    >
+    <footer className="footer-container">
       <p>© 2025 Magnet Labs. All rights reserved.</p>
-      <div style={{ marginTop: "0.5rem" }}>
-        <a href="#" style={{ margin: "0 0.5rem", color: "#fff" }}>
-          Facebook
+      <div className="social-icons">
+        <a
+          href="#"
+          className="social-icon facebook"
+          aria-label="Facebook"
+        >
+          <FaFacebook size={30} />
         </a>
-        <a href="#" style={{ margin: "0 0.5rem", color: "#fff" }}>
-          Instagram
+        <a
+          href="#"
+          className="social-icon instagram"
+          aria-label="Instagram"
+        >
+          <FaInstagram size={30} />
         </a>
-        <a href="#" style={{ margin: "0 0.5rem", color: "#fff" }}>
-          LinkedIn
+        <a
+          href="#"
+          className="social-icon linkedin"
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin size={30} />
         </a>
       </div>
     </footer>
