@@ -8,6 +8,8 @@ import P5Image from '../Images/P5_bg_removed.png';
 const People = React.forwardRef(({ index }, ref) => {
   const images = [P1Image, P2Image, P3Image, P4Image, P5Image];
 
+  const animationDelay = `${Math.random() * 3}s`; // Random delay for each person
+
   return (
     <div
       ref={ref}
@@ -19,6 +21,7 @@ const People = React.forwardRef(({ index }, ref) => {
         alignItems: 'center',
         position: 'absolute',
         zIndex: 5,
+        animation: `blowWind 5s ease-in-out ${animationDelay} infinite`,
       }}
     >
       <img
