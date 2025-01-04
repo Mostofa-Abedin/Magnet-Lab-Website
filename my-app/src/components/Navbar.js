@@ -21,7 +21,10 @@ const Navbar = () => {
       }}
     >
       {/* Logo and Name */}
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <Link
+        to="/"
+        style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}
+      >
         <img
           src={magnetLogo}
           alt="Magnet Logo"
@@ -52,7 +55,7 @@ const Navbar = () => {
         >
           Magnet Labs™
         </span>
-      </div>
+      </Link>
 
       {/* Navigation Links */}
       <div style={{ display: "flex", gap: "2rem" }}>
