@@ -59,47 +59,48 @@ const App = () => {
       <div>
         <Navbar />
 
+        {/* Overlayed Animation */}
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none", // Allow clicks to pass through
+            zIndex: 10, // Ensure it's above all other content
+          }}
+        >
+          {/* Magnet */}
+          <Magnet />
+
+          {/* People */}
+          {motionValues.map((values, index) => (
+            <motion.div
+              key={index}
+              style={{
+                position: "absolute",
+                width: 80,
+                height: 80,
+              }}
+              animate={{
+                x: values.x.get(),
+                y: values.y.get(),
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <People index={index} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Routes */}
         <Routes>
           {/* Home Route */}
           <Route
             path="/"
             element={
               <>
-                {/* Overlayed Animation */}
-                <div
-                  style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    pointerEvents: "none", // Allow clicks to pass through
-                    zIndex: 10, // Ensure it's above all other content
-                  }}
-                >
-                  {/* Magnet */}
-                  <Magnet />
-
-                  {/* People */}
-                  {motionValues.map((values, index) => (
-                    <motion.div
-                      key={index}
-                      style={{
-                        position: "absolute",
-                        width: 80,
-                        height: 80,
-                      }}
-                      animate={{
-                        x: values.x.get(),
-                        y: values.y.get(),
-                      }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
-                    >
-                      <People index={index} />
-                    </motion.div>
-                  ))}
-                </div>
-
                 {/* Hero and Teaser Sections */}
                 <HeroSection />
                 <ServicesTeaser />
