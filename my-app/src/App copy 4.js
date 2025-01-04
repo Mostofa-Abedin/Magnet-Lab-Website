@@ -6,8 +6,6 @@ import ServicesTeaser from "./components/ServicesTeaser";
 import WorkTeaser from "./components/WorkTeaser";
 import ContactTeaser from "./components/ContactTeaser";
 import Footer from "./components/Footer";
-import Magnet from "./components/Magnet";
-import People from "./components/People";
 
 const App = () => {
   const [magnetPosition, setMagnetPosition] = useState({ x: 100, y: 300 });
@@ -65,7 +63,21 @@ const App = () => {
         }}
       >
         {/* Magnet */}
-        <Magnet />
+        <motion.div
+          style={{
+            position: "absolute",
+            left: magnetPosition.x,
+            top: magnetPosition.y,
+            width: 80,
+            height: 80,
+          }}
+        >
+          <motion.img
+            src="/Images/magnet_bg_removed.png"
+            alt="Magnet"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </motion.div>
 
         {/* People */}
         {motionValues.map((values, index) => (
@@ -82,7 +94,16 @@ const App = () => {
             }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <People index={index} />
+            <img
+              src={`/Images/P${index + 1}_bg_removed.png`}
+              alt={`Person ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
           </motion.div>
         ))}
       </div>
