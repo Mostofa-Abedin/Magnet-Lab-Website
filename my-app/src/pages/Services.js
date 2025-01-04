@@ -1,196 +1,238 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import webImage from "../Images/stock-web-development.jpg";
+import seoImage from "../Images/stock-seo.jpg";
+import socialMediaImage from "../Images/stock-social-media.jpg";
 
 const Services = () => {
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: "'Poppins', sans-serif",
+        backgroundColor: "#f9f9f9",
+      }}
+    >
       {/* Introductory Section */}
       <section
         style={{
+          background: "linear-gradient(120deg, #1e1e2f, #2e2e48)",
           padding: "4rem 2rem",
-          textAlign: "center",
-          background: "linear-gradient(to right, #1f1f1f, #333)",
           color: "#fff",
+          textAlign: "center",
+          borderRadius: "0 0 20px 20px",
+          boxShadow: "0 10px 15px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <h1 style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
+        <h1
+          style={{
+            fontSize: "3.5rem",
+            fontWeight: "700",
+            marginBottom: "1rem",
+            textShadow: "0 4px 8px rgba(0,0,0,0.5)",
+          }}
+        >
           Our Expertise, Your Advantage
         </h1>
-        <p style={{ fontSize: "1.25rem", marginTop: "1rem" }}>
-          Explore our range of services designed to elevate your business.
+        <p
+          style={{
+            fontSize: "1.25rem",
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.8",
+          }}
+        >
+          From cutting-edge web development to impactful marketing strategies,
+          we deliver solutions that help your business stand out.
         </p>
       </section>
 
-      {/* Web Development Section */}
-      <section
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "4rem 2rem",
-          background: "#f9f9f9",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ flex: "1", marginRight: "2rem", minWidth: "300px" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-            Custom Web Development
-          </h2>
-          <p style={{ fontSize: "1rem", marginTop: "1rem" }}>
-            We create responsive, visually stunning, and functional websites
-            tailored to your brand.
-          </p>
-          <ul style={{ marginTop: "1rem" }}>
-            <li>Mobile-friendly design.</li>
-            <li>SEO-optimized structure.</li>
-            <li>Custom integrations (e.g., e-commerce, CRM tools).</li>
-          </ul>
-        </div>
-        <div style={{ flex: "1", minWidth: "300px" }}>
-          <img
-            src="/Images/web-development.jpg"
-            alt="Web Development"
+      {/* Service Sections */}
+      {[
+        {
+          title: "Custom Web Development",
+          description:
+            "We create responsive, visually stunning, and functional websites tailored to your brand.",
+          points: [
+            "Mobile-friendly design",
+            "SEO-optimized structure",
+            "Custom integrations (e.g., e-commerce, CRM tools)",
+          ],
+          img: webImage,
+          bg: "#ffffff",
+        },
+        {
+          title: "SEO That Drives Results",
+          description:
+            "Boost your online visibility with tailored strategies that get your business noticed.",
+          points: [
+            { icon: "🔍", text: "Keyword research and optimization" },
+            { icon: "📄", text: "On-page and off-page SEO" },
+            { icon: "📈", text: "Monthly performance reporting" },
+          ],
+          img: seoImage,
+          bg: "#f8f8f8",
+        },
+        {
+          title: "Social Media Marketing That Engages",
+          description:
+            "Create a strong social presence with campaigns that captivate your audience.",
+          points: [
+            "Platform-specific strategies (e.g., Instagram, LinkedIn, Facebook)",
+            "Professional content creation and curation",
+            "Analytics and performance tracking to measure success",
+          ],
+          img: socialMediaImage,
+          bg: "#ffffff",
+        },
+      ].map((service, index) => (
+        <section
+          key={index}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "4rem 2rem",
+            background: service.bg,
+            flexWrap: "wrap",
+            borderRadius: "12px",
+            margin: "2rem 1rem",
+            boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+          }}
+        >
+          <div
             style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: "10px",
+              flex: "1",
+              minWidth: "300px",
+              marginRight: index % 2 === 1 ? "2rem" : "0",
+              marginLeft: index % 2 === 0 ? "2rem" : "0",
+              textAlign: "left", // Ensure text alignment is left
             }}
-          />
-        </div>
-      </section>
-
-      {/* SEO Section */}
-      <section
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "4rem 2rem",
-          background: "#fff",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ flex: "1", marginRight: "2rem", minWidth: "300px" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-            SEO That Drives Results
-          </h2>
-          <p style={{ fontSize: "1rem", marginTop: "1rem" }}>
-            Boost your online visibility with tailored strategies that get your
-            business noticed.
-          </p>
-          <ul style={{ marginTop: "1rem" }}>
-            <li>Keyword research and optimization.</li>
-            <li>On-page and off-page SEO.</li>
-            <li>Monthly performance reporting with actionable insights.</li>
-          </ul>
-        </div>
-        <div style={{ flex: "1", minWidth: "300px" }}>
-          <img
-            src="/Images/seo-results.jpg"
-            alt="SEO"
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: "10px",
-            }}
-          />
-        </div>
-      </section>
-
-      {/* Social Media Marketing Section */}
-      <section
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "4rem 2rem",
-          background: "#f9f9f9",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ flex: "1", marginRight: "2rem", minWidth: "300px" }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-            Social Media Marketing That Engages
-          </h2>
-          <p style={{ fontSize: "1rem", marginTop: "1rem" }}>
-            Create a strong social presence with campaigns that captivate your
-            audience.
-          </p>
-          <ul style={{ marginTop: "1rem" }}>
-            <li>Platform-specific strategies (e.g., Instagram, LinkedIn, Facebook).</li>
-            <li>Professional content creation and curation.</li>
-            <li>Analytics and performance tracking to measure success.</li>
-          </ul>
-        </div>
-        <div style={{ flex: "1", minWidth: "300px" }}>
-          <img
-            src="/Images/social-media.jpg"
-            alt="Social Media Marketing"
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: "10px",
-            }}
-          />
-        </div>
-      </section>
-
-      {/* Packages Section */}
-      <section
-        style={{
-          padding: "4rem 2rem",
-          background: "linear-gradient(to right, #1f1f1f, #333)",
-          color: "#fff",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-          Tailored Packages for Every Business
-        </h2>
-        <p style={{ marginTop: "1rem", fontSize: "1.25rem" }}>
-          Choose from flexible packages combining our core services to suit
-          your needs.
-        </p>
-        <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
-          <div style={{ margin: "0.5rem", padding: "2rem", background: "#444", borderRadius: "10px", color: "#fff" }}>
-            <h3>Starter Package</h3>
-            <p>Web Development + Basic SEO</p>
+          >
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                marginBottom: "1rem",
+                color: "#333",
+                textShadow: "0 3px 6px rgba(0,0,0,0.1)",
+              }}
+            >
+              {service.title}
+            </h2>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "#555",
+                marginBottom: "1.5rem",
+                lineHeight: "1.8",
+              }}
+            >
+              {service.description}
+            </p>
+            {service.title === "SEO That Drives Results" ? (
+              <ul
+                style={{
+                  marginTop: "1rem",
+                  paddingLeft: "0",
+                  color: "#555",
+                  lineHeight: "1.8",
+                  listStyleType: "none",
+                }}
+              >
+                {service.points.map((point, i) => (
+                  <li
+                    key={i}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "1.5rem",
+                        marginRight: "0.5rem",
+                      }}
+                    >
+                      {point.icon}
+                    </span>
+                    {point.text}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul
+                style={{
+                  marginTop: "1rem",
+                  color: "#555",
+                  lineHeight: "1.8",
+                  listStyleType: "disc",
+                  paddingLeft: "1rem",
+                }}
+              >
+                {service.points.map((point, i) => (
+                  <li
+                    key={i}
+                    style={{
+                      fontSize: "1rem",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-          <div style={{ margin: "0.5rem", padding: "2rem", background: "#555", borderRadius: "10px", color: "#fff" }}>
-            <h3>Growth Package</h3>
-            <p>Web Development + SEO + Social Media Marketing</p>
+          <div style={{ flex: "1", minWidth: "300px" }}>
+            <img
+              src={service.img}
+              alt={service.title}
+              style={{
+                width: "100%",
+                borderRadius: "12px",
+                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+              }}
+            />
           </div>
-          <div style={{ margin: "0.5rem", padding: "2rem", background: "#666", borderRadius: "10px", color: "#fff" }}>
-            <h3>Custom Package</h3>
-            <p>Fully tailored to your business goals</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* Call-to-Action Section */}
       <section
         style={{
-          padding: "2rem",
-          background: "linear-gradient(to right, #1f1f1f, #333)",
+          background: "linear-gradient(120deg, #1e1e2f, #2e2e48)",
+          padding: "3rem 2rem",
           textAlign: "center",
           color: "#fff",
         }}
       >
-        <h2>Let’s Build Something Great Together</h2>
-        <p>Contact us today to get started.</p>
-        <button
+        <h2
           style={{
-            marginTop: "1rem",
-            padding: "0.75rem 1.5rem",
-            backgroundColor: "#ff6f61",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "1rem",
+            fontSize: "2.5rem",
+            fontWeight: "700",
+            marginBottom: "1rem",
           }}
         >
+          Ready to Elevate Your Business?
+        </h2>
+        <Link
+          to="/contact"
+          style={{
+            textDecoration: "none",
+            padding: "1rem 2rem",
+            fontSize: "1.25rem",
+            background: "#ff6f61",
+            color: "#fff",
+            borderRadius: "8px",
+            boxShadow: "0 6px 12px rgba(0,0,0,0.2)",
+            transition: "background 0.3s ease",
+          }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = "#ff8563")}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "#ff6f61")}
+        >
           Contact Us
-        </button>
+        </Link>
       </section>
     </div>
   );
