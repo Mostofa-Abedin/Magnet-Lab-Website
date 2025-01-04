@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactTeaser = () => {
+  const navigate = useNavigate(); // React Router hook for navigation
+
   return (
     <div
       id="contact"
@@ -26,8 +29,11 @@ const ContactTeaser = () => {
           borderRadius: "5px",
           cursor: "pointer",
           fontSize: "1rem",
+          transition: "background-color 0.3s ease",
         }}
-        onClick={() => (window.location.href = "/contact-us")}
+        onClick={() => navigate("/contact")}
+        onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
+        onMouseOut={(e) => (e.target.style.backgroundColor = "#007BFF")}
       >
         Contact Us
       </button>
