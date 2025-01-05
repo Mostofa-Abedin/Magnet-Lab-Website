@@ -50,26 +50,6 @@ const HeroSection = () => {
             background: "radial-gradient(circle, rgba(0,32,46,0.5), transparent)",
           }}
         ></div>
-
-        {/* Shooting Stars */}
-        {[...Array(5)].map((_, index) => (
-          <div
-            key={index}
-            style={{
-              position: "absolute",
-              top: `${Math.random() * 80}%`, // Random starting position
-              left: `${Math.random() * -50}%`, // Random starting position
-              width: "2px",
-              height: "2px",
-              background: "white",
-              boxShadow: "0 0 10px 2px white",
-              borderRadius: "50%",
-              animation: `shootingStar ${4 + Math.random() * 3}s linear infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-              zIndex: 2,
-            }}
-          ></div>
-        ))}
       </div>
 
       {/* Overlay Content */}
@@ -94,7 +74,23 @@ const HeroSection = () => {
             animation: "fadeIn 1.5s ease-in",
           }}
         >
-          The Art of Digital Attraction
+          The Art of{" "}
+          <span
+            style={{
+              color: "#ffd380",
+              borderBottom: "3px solid #bb0a1e",
+              cursor: "pointer",
+              transition: "text-shadow 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textShadow = "0 0 20px #bb0a1e, 0 0 30px #bb0a1e";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textShadow = "none";
+            }}
+          >
+            Digital Attraction
+          </span>
         </h1>
         <p
           style={{
@@ -108,9 +104,57 @@ const HeroSection = () => {
           }}
         >
           We craft solutions that{" "}
-          <span style={{ fontWeight: "bold", color: " #bb0a1e" }}>Attract</span>,{" "}
-          <span style={{ fontWeight: "bold", color: "	#367588" }}>Engage</span>, &{" "}
-          <span style={{ fontWeight: "bold", color: " #ffa600" }}>Convert</span>.
+          <span
+            style={{
+              fontWeight: "bold",
+              color: "#bb0a1e",
+              cursor: "pointer",
+              transition: "text-shadow 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textShadow = "0 0 20px #bb0a1e, 0 0 30px #bb0a1e";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textShadow = "none";
+            }}
+          >
+            Attract
+          </span>
+          ,{" "}
+          <span
+            style={{
+              fontWeight: "bold",
+              color: "#367588",
+              cursor: "pointer",
+              transition: "text-shadow 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textShadow = "0 0 20px #367588, 0 0 30px #367588";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textShadow = "none";
+            }}
+          >
+            Engage
+          </span>
+          , &{" "}
+          <span
+            style={{
+              fontWeight: "bold",
+              color: "#ffa600",
+              cursor: "pointer",
+              transition: "text-shadow 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textShadow = "0 0 20px #ffa600, 0 0 30px #ffa600";
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textShadow = "none";
+            }}
+          >
+            Convert
+          </span>
+          .
         </p>
       </div>
     </div>
