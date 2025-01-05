@@ -9,31 +9,69 @@ const ContactTeaser = () => {
       id="contact"
       style={{
         padding: "4rem 2rem",
-        backgroundColor: "#333",
+        background: "linear-gradient(to right, #00202e, #2c4875)",
         color: "#fff",
         textAlign: "center",
+        borderRadius: "20px",
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.4)",
+        margin: "2rem 1rem",
+        transform: "translateY(0)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        cursor: "default",
+      }}
+      onMouseOver={(e) => {
+        e.currentTarget.style.transform = "translateY(-10px)";
+        e.currentTarget.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.5)";
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.4)";
       }}
     >
-      <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}>
+      <h2
+        style={{
+          fontSize: "2.5rem",
+          fontWeight: "700",
+          marginBottom: "1rem",
+          textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+        }}
+      >
         Get in Touch
       </h2>
-      <p style={{ fontSize: "1rem", color: "#ccc", marginBottom: "2rem" }}>
+      <p
+        style={{
+          fontSize: "1.2rem",
+          maxWidth: "600px",
+          margin: "0 auto",
+          lineHeight: "1.8",
+          marginBottom: "2rem",
+          color: "#ffd380",
+        }}
+      >
         Have a question? Ready to start a project? Let's connect!
       </p>
       <button
         style={{
-          padding: "0.75rem 1.5rem",
-          backgroundColor: "#007BFF",
-          color: "#fff",
+          padding: "1rem 2rem",
+          backgroundColor: "#ffa600",
+          color: "#00202e",
           border: "none",
-          borderRadius: "5px",
+          borderRadius: "12px",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
           cursor: "pointer",
-          fontSize: "1rem",
-          transition: "background-color 0.3s ease",
+          transition: "transform 0.3s ease, background-color 0.3s ease",
         }}
         onClick={() => navigate("/contact")}
-        onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
-        onMouseOut={(e) => (e.target.style.backgroundColor = "#007BFF")}
+        onMouseOver={(e) => {
+          e.target.style.transform = "scale(1.1)";
+          e.target.style.backgroundColor = "#ff8531";
+        }}
+        onMouseOut={(e) => {
+          e.target.style.transform = "scale(1)";
+          e.target.style.backgroundColor = "#ffa600";
+        }}
       >
         Contact Us
       </button>
