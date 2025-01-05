@@ -6,7 +6,8 @@ const ServicesTeaser = () => {
       id="services"
       style={{
         padding: "4rem 2rem",
-        background: "linear-gradient(to right, #00202e, #8a508f)",
+        background: "linear-gradient(to right, rgba(44, 72, 117, 0.7), rgba(0, 32, 46, 0.7))",
+        backdropFilter: "blur(10px)", // Frosted glass effect
         color: "#fff",
         textAlign: "center",
         borderRadius: "20px", // Rounded borders for the container
@@ -55,19 +56,15 @@ const ServicesTeaser = () => {
         }}
       >
         {/* Example Service Cards */}
-        {[
-          { title: "Web Development", icon: "💻" },
-          { title: "SEO", icon: "📈" },
-          { title: "Social Media Marketing", icon: "📱" },
-        ].map((service, index) => (
+        {[{ title: "Web Development", icon: "💻" }, { title: "SEO", icon: "📈" }, { title: "Social Media Marketing", icon: "📱" }].map((service, index) => (
           <div
             key={index}
             style={{
               width: "180px",
               height: "180px",
-              background: "linear-gradient(to top, #ffa600, #ffd380)",
+              background: "linear-gradient(to bottom, rgba(255, 99, 97, 0.8), rgba(255, 133, 49, 0.8))",
               borderRadius: "12px",
-              boxShadow: "0 10px 20px rgba(0, 0, 0, 1)", // Shadow for cards
+              boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)", // Shadow for cards
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -87,9 +84,7 @@ const ServicesTeaser = () => {
               e.currentTarget.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.3)";
             }}
           >
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>
-              {service.icon}
-            </div>
+            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{service.icon}</div>
             {service.title}
           </div>
         ))}

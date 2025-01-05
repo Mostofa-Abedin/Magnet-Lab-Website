@@ -109,7 +109,7 @@ const HeroSection = () => {
         >
           We craft solutions that{" "}
           <span style={{ fontWeight: "bold", color: " #bb0a1e" }}>Attract</span>,{" "}
-          <span style={{ fontWeight: "bold", color: "	#367588" }}>Engage</span>, and{" "}
+          <span style={{ fontWeight: "bold", color: "	#367588" }}>Engage</span>, &{" "}
           <span style={{ fontWeight: "bold", color: " #ffa600" }}>Convert</span>.
         </p>
       </div>

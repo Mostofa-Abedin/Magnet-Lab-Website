@@ -39,9 +39,10 @@ const Contact = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(to right, #f0f4f8, #ffffff)",
+        background: "linear-gradient(to right, rgba(240, 244, 248, 0.8), rgba(255, 255, 255, 0.8))",
         padding: "2rem 0",
         fontFamily: "'Poppins', sans-serif",
+        backdropFilter: "blur(10px)",
       }}
     >
       {/* Introductory Section */}
@@ -49,14 +50,23 @@ const Contact = () => {
         style={{
           padding: "4rem 2rem",
           textAlign: "center",
-          background: "linear-gradient(to right, #1a1a1a, #333)",
+          background: "linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(51, 51, 51, 0.8))",
           color: "#fff",
+          borderRadius: "12px",
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
         }}
       >
         <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>
           Let’s Build Something Great Together
         </h1>
-        <p style={{ fontSize: "1.25rem", marginTop: "1rem", maxWidth: "800px", margin: "1rem auto" }}>
+        <p
+          style={{
+            fontSize: "1.25rem",
+            marginTop: "1rem",
+            maxWidth: "800px",
+            margin: "1rem auto",
+          }}
+        >
           Whether you're looking to create a stunning website, boost your online presence, or
           launch an engaging marketing campaign, we're here to make it happen.
         </p>
@@ -74,10 +84,11 @@ const Contact = () => {
           style={{
             maxWidth: "600px",
             width: "100%",
-            background: "linear-gradient(to right, #ffffff, #f7f9fc)",
+            background: "linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(247, 249, 252, 0.8))",
             padding: "2rem",
             borderRadius: "12px",
-            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+            backdropFilter: "blur(10px)",
           }}
         >
           <h2
@@ -103,11 +114,12 @@ const Contact = () => {
               style={{
                 width: "100%",
                 padding: "1rem",
-                border: "none",
+                border: "1px solid #ddd",
                 marginBottom: "1rem",
                 borderRadius: "8px",
-                background: "#f0f4f8",
+                background: "rgba(240, 244, 248, 0.8)",
                 fontSize: "1rem",
+                boxSizing: "border-box",
               }}
               required
             />
@@ -117,11 +129,12 @@ const Contact = () => {
               style={{
                 width: "100%",
                 padding: "1rem",
-                border: "none",
+                border: "1px solid #ddd",
                 marginBottom: "1rem",
                 borderRadius: "8px",
-                background: "#f0f4f8",
+                background: "rgba(240, 244, 248, 0.8)",
                 fontSize: "1rem",
+                boxSizing: "border-box",
               }}
               required
             />
@@ -131,11 +144,12 @@ const Contact = () => {
               style={{
                 width: "100%",
                 padding: "1rem",
-                border: "none",
+                border: "1px solid #ddd",
                 marginBottom: "1rem",
                 borderRadius: "8px",
-                background: "#f0f4f8",
+                background: "rgba(240, 244, 248, 0.8)",
                 fontSize: "1rem",
+                boxSizing: "border-box",
               }}
               required
             ></textarea>
@@ -166,7 +180,10 @@ const Contact = () => {
       <section
         style={{
           padding: "4rem 2rem",
-          background: "#f9f9f9",
+          background: "rgba(249, 249, 249, 0.9)",
+          borderRadius: "12px",
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+          backdropFilter: "blur(10px)",
         }}
       >
         <h2
@@ -184,13 +201,14 @@ const Contact = () => {
             <div
               key={index}
               style={{
-                background: openFAQ === index ? "#e9ecef" : "#fff",
+                background: openFAQ === index ? "rgba(233, 236, 239, 0.9)" : "rgba(255, 255, 255, 0.9)",
                 padding: "1rem",
                 marginBottom: "1rem",
                 borderRadius: "8px",
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
                 cursor: "pointer",
                 transition: "background 0.3s ease",
+                backdropFilter: "blur(5px)",
               }}
               onClick={() => toggleFAQ(index)}
             >

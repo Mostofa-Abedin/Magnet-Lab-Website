@@ -14,10 +14,16 @@ import People from "./components/People";
 import Services from "./pages/Services";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
+import Project1 from "./pages/Project1";
+import Project2 from "./pages/Project2";
+import Project3 from "./pages/Project3";
+import Project4 from "./pages/Project4";
+import Project5 from "./pages/Project5";
+import Project6 from "./pages/Project6";
 
 const App = () => {
   const [magnetPosition, setMagnetPosition] = useState({ x: 100, y: 300 });
-  const [resetPositions, setResetPositions] = useState(false); // New state to reset People positions
+  const [resetPositions, setResetPositions] = useState(false);
 
   // Define motion values explicitly for each person
   const motionValues = [
@@ -30,8 +36,8 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const yOffset = window.scrollY * 0.3; // Scale down the scroll influence
-      const clampedY = Math.min(Math.max(300 + yOffset, 200), 400); // Bound to [200, 400]
+      const yOffset = window.scrollY * 0.3;
+      const clampedY = Math.min(Math.max(300 + yOffset, 200), 400);
       setMagnetPosition({ x: 100, y: clampedY });
     };
 
@@ -41,35 +47,31 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // When resetPositions is true, reset motion values to the starting point on the right
     if (resetPositions) {
       motionValues.forEach((values, index) => {
-        values.x.set(1200); // Reset x position to the far right
-        values.y.set(200 + index * 100); // Staggered vertical reset
+        values.x.set(1200);
+        values.y.set(200 + index * 100);
       });
 
-      // Disable reset after applying it
       setResetPositions(false);
     } else {
-      // Normal attraction logic
       motionValues.forEach((values, index) => {
         values.x.set(
           magnetPosition.x +
-            (index % 2 === 0 ? 50 : -50) + // Add offset for variety
+            (index % 2 === 0 ? 50 : -50) + 
             index * 10
         );
         values.y.set(
           magnetPosition.y +
-            30 * index + // Staggered vertical positions
+            30 * index +
             Math.sin(index * 0.5) * 20
         );
       });
     }
-  }, [magnetPosition, resetPositions]); // Trigger on position updates or reset
+  }, [magnetPosition, resetPositions]);
 
-  // Function to handle click on the Magnet
   const handleMagnetClick = () => {
-    setResetPositions(true); // Trigger reset positions
+    setResetPositions(true);
   };
 
   return (
@@ -85,22 +87,20 @@ const App = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            pointerEvents: "none", // Allow clicks to pass through
-            zIndex: 10, // Ensure it's above all other content
+            pointerEvents: "none",
+            zIndex: 10,
           }}
         >
-          {/* Magnet */}
           <div
             style={{
-              pointerEvents: "auto", // Allow clicks on the Magnet
+              pointerEvents: "auto",
               cursor: "pointer",
             }}
-            onClick={handleMagnetClick} // Reset positions on click
+            onClick={handleMagnetClick}
           >
             <Magnet />
           </div>
 
-          {/* People */}
           {motionValues.map((values, index) => (
             <motion.div
               key={index}
@@ -127,7 +127,6 @@ const App = () => {
             path="/"
             element={
               <>
-                {/* Hero and Teaser Sections */}
                 <HeroSection />
                 <ServicesTeaser />
                 <WorkTeaser />
@@ -135,15 +134,19 @@ const App = () => {
               </>
             }
           />
-
           {/* Services Page */}
           <Route path="/services" element={<Services />} />
-
           {/* Work Page */}
           <Route path="/work" element={<Work />} />
-
           {/* Contact Page */}
           <Route path="/contact" element={<Contact />} />
+          {/* Individual Project Pages */}
+          <Route path="/Project1" element={<Project1 />} />
+          <Route path="/Project2" element={<Project2 />} />
+          <Route path="/Project3" element={<Project3 />} />
+          <Route path="/Project4" element={<Project4 />} />
+          <Route path="/Project5" element={<Project5 />} />
+          <Route path="/Project6" element={<Project6 />} />
         </Routes>
 
         <Footer />

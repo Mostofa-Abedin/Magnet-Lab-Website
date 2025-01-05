@@ -15,7 +15,8 @@ const Services = () => {
       {/* Introductory Section */}
       <section
         style={{
-          background: "linear-gradient(120deg, #1e1e2f, #2e2e48)",
+          background: "linear-gradient(120deg, rgba(30, 30, 47, 0.7), rgba(46, 46, 72, 0.7))",
+          backdropFilter: "blur(10px)",
           padding: "4rem 2rem",
           color: "#fff",
           textAlign: "center",
@@ -58,7 +59,7 @@ const Services = () => {
             "Custom integrations (e.g., e-commerce, CRM tools)",
           ],
           img: webImage,
-          bg: "#ffffff",
+          bg: "rgba(44, 72, 117, 0.7)",
         },
         {
           title: "SEO That Drives Results",
@@ -70,7 +71,7 @@ const Services = () => {
             { icon: "📈", text: "Monthly performance reporting" },
           ],
           img: seoImage,
-          bg: "#f8f8f8",
+          bg: "rgba(0, 32, 46, 0.7)",
         },
         {
           title: "Social Media Marketing That Engages",
@@ -82,7 +83,7 @@ const Services = () => {
             "Analytics and performance tracking to measure success",
           ],
           img: socialMediaImage,
-          bg: "#ffffff",
+          bg: "rgba(139, 80, 143, 0.7)",
         },
       ].map((service, index) => (
         <section
@@ -93,10 +94,11 @@ const Services = () => {
             justifyContent: "space-between",
             padding: "4rem 2rem",
             background: service.bg,
+            backdropFilter: "blur(10px)",
             flexWrap: "wrap",
             borderRadius: "12px",
             margin: "2rem 1rem",
-            boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+            boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
           }}
         >
           <div
@@ -105,7 +107,7 @@ const Services = () => {
               minWidth: "300px",
               marginRight: index % 2 === 1 ? "2rem" : "0",
               marginLeft: index % 2 === 0 ? "2rem" : "0",
-              textAlign: "left", // Ensure text alignment is left
+              textAlign: "left",
             }}
           >
             <h2
@@ -113,8 +115,8 @@ const Services = () => {
                 fontSize: "2.5rem",
                 fontWeight: "700",
                 marginBottom: "1rem",
-                color: "#333",
-                textShadow: "0 3px 6px rgba(0,0,0,0.1)",
+                color: "#fff",
+                textShadow: "0 3px 6px rgba(0,0,0,0.2)",
               }}
             >
               {service.title}
@@ -122,7 +124,7 @@ const Services = () => {
             <p
               style={{
                 fontSize: "1.2rem",
-                color: "#555",
+                color: "#fff",
                 marginBottom: "1.5rem",
                 lineHeight: "1.8",
               }}
@@ -134,7 +136,7 @@ const Services = () => {
                 style={{
                   marginTop: "1rem",
                   paddingLeft: "0",
-                  color: "#555",
+                  color: "#fff",
                   lineHeight: "1.8",
                   listStyleType: "none",
                 }}
@@ -164,7 +166,7 @@ const Services = () => {
               <ul
                 style={{
                   marginTop: "1rem",
-                  color: "#555",
+                  color: "#fff",
                   lineHeight: "1.8",
                   listStyleType: "disc",
                   paddingLeft: "1rem",
@@ -191,7 +193,7 @@ const Services = () => {
               style={{
                 width: "100%",
                 borderRadius: "12px",
-                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+                boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
               }}
             />
           </div>
@@ -201,10 +203,13 @@ const Services = () => {
       {/* Call-to-Action Section */}
       <section
         style={{
-          background: "linear-gradient(120deg, #1e1e2f, #2e2e48)",
+          background: "linear-gradient(120deg, rgba(30, 30, 47, 0.7), rgba(46, 46, 72, 0.7))",
           padding: "3rem 2rem",
           textAlign: "center",
           color: "#fff",
+          borderRadius: "12px",
+          boxShadow: "0 15px 30px rgba(0,0,0,0.3)",
+          margin: "2rem 1rem",
         }}
       >
         <h2
@@ -225,7 +230,7 @@ const Services = () => {
             background: "#ff6f61",
             color: "#fff",
             borderRadius: "8px",
-            boxShadow: "0 6px 12px rgba(0,0,0,0.2)",
+            boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
             transition: "background 0.3s ease",
           }}
           onMouseOver={(e) => (e.target.style.backgroundColor = "#ff8563")}

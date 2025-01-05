@@ -9,7 +9,8 @@ const ContactTeaser = () => {
       id="contact"
       style={{
         padding: "4rem 2rem",
-        background: "linear-gradient(to right, #00202e, #2c4875)",
+        background: "linear-gradient(to right, rgba(0, 32, 46, 0.5), rgba(138, 80, 143, 0.5))",
+        backdropFilter: "blur(15px)", // Adds frosted glass effect
         color: "#fff",
         textAlign: "center",
         borderRadius: "20px",
