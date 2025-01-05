@@ -29,9 +29,12 @@ const Footer = () => {
           gap: "1.5rem",
         }}
       >
+        {/* Facebook */}
         <a
-          href="#"
+          href="https://www.facebook.com/MagnetLabs" // Replace with your actual Facebook URL
           aria-label="Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             color: "#1877f2", // Official Facebook blue
             transition: "transform 0.3s ease, opacity 0.3s ease",
@@ -47,9 +50,13 @@ const Footer = () => {
         >
           <FaFacebook size={30} />
         </a>
+
+        {/* Instagram */}
         <a
-          href="#"
+          href="https://www.instagram.com/MagnetLabs" // Replace with your actual Instagram URL
           aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             color: "#e1306c", // Official Instagram pink
             transition: "transform 0.3s ease, opacity 0.3s ease",
@@ -65,9 +72,13 @@ const Footer = () => {
         >
           <FaInstagram size={30} />
         </a>
+
+        {/* LinkedIn */}
         <a
-          href="#"
+          href="https://www.linkedin.com/company/MagnetLabs" // Replace with your actual LinkedIn URL
           aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             color: "white", // Official LinkedIn blue
             transition: "transform 0.3s ease, opacity 0.3s ease",

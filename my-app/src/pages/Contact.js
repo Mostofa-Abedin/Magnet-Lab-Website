@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
