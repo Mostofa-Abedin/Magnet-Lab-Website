@@ -27,11 +27,11 @@ const App = () => {
 
   // Define motion values explicitly for each person
   const motionValues = [
-    { x: useMotionValue(1200), y: useMotionValue(200) },
-    { x: useMotionValue(1200), y: useMotionValue(300) },
-    { x: useMotionValue(1200), y: useMotionValue(400) },
-    { x: useMotionValue(1200), y: useMotionValue(500) },
-    { x: useMotionValue(1200), y: useMotionValue(600) },
+    { x: useMotionValue(1200), y: useMotionValue(200), scale: useMotionValue(1) },
+    { x: useMotionValue(1200), y: useMotionValue(300), scale: useMotionValue(1) },
+    { x: useMotionValue(1200), y: useMotionValue(400), scale: useMotionValue(1) },
+    { x: useMotionValue(1200), y: useMotionValue(500), scale: useMotionValue(1) },
+    { x: useMotionValue(1200), y: useMotionValue(600), scale: useMotionValue(1) },
   ];
 
   useEffect(() => {
@@ -48,30 +48,35 @@ const App = () => {
 
   useEffect(() => {
     if (resetPositions) {
+      // Reset positions and scales
       motionValues.forEach((values, index) => {
         values.x.set(1200);
         values.y.set(200 + index * 100);
+        values.scale.set(1); // Reset scale to full size
       });
-
       setResetPositions(false);
     } else {
+      // Update positions and apply shrinking timer
       motionValues.forEach((values, index) => {
         values.x.set(
-          magnetPosition.x +
-            (index % 2 === 0 ? 50 : -50) + 
-            index * 10
+          magnetPosition.x + (index % 2 === 0 ? 50 : -50) + index * 10
         );
         values.y.set(
-          magnetPosition.y +
-            30 * index +
-            Math.sin(index * 0.5) * 20
+          magnetPosition.y + 30 * index + Math.sin(index * 0.5) * 20
         );
+
+        // Start shrinking over 10 seconds
+        const shrinkInterval = setTimeout(() => {
+          values.scale.set(0); // Shrink to 0
+        }, 5000);
+
+        return () => clearTimeout(shrinkInterval); // Cleanup timer on unmount
       });
     }
   }, [magnetPosition, resetPositions]);
 
   const handleMagnetClick = () => {
-    setResetPositions(true);
+    setResetPositions(true); // Trigger reset positions
   };
 
   return (
@@ -112,6 +117,7 @@ const App = () => {
               animate={{
                 x: values.x.get(),
                 y: values.y.get(),
+                scale: values.scale.get(), // Animate scale
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
@@ -122,7 +128,6 @@ const App = () => {
 
         {/* Routes */}
         <Routes>
-          {/* Home Route */}
           <Route
             path="/"
             element={
@@ -134,13 +139,9 @@ const App = () => {
               </>
             }
           />
-          {/* Services Page */}
           <Route path="/services" element={<Services />} />
-          {/* Work Page */}
           <Route path="/work" element={<Work />} />
-          {/* Contact Page */}
           <Route path="/contact" element={<Contact />} />
-          {/* Individual Project Pages */}
           <Route path="/Project1" element={<Project1 />} />
           <Route path="/Project2" element={<Project2 />} />
           <Route path="/Project3" element={<Project3 />} />

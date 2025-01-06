@@ -40,19 +40,6 @@ div {
   }
 }
 
-@keyframes shootingStar {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(100vw, 50vh);
-    opacity: 0;
-  }
-}
 
 
 
