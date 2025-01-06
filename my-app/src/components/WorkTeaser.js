@@ -43,16 +43,27 @@ const WorkTeaser = () => {
         e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.4)";
       }}
     >
-      <h2
-        style={{
-          fontSize: "2.5rem",
-          fontWeight: "700",
-          marginBottom: "1rem",
-          textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        Our Work
-      </h2>
+      {/* Clickable Title */}
+      <Link to="/work" style={{ textDecoration: "none", color: "inherit" }}>
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: "700",
+            marginBottom: "1rem",
+            textShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+            transition: "text-shadow 0.3s ease",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.textShadow = "0 0 10px white";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.textShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
+          }}
+        >
+          Our Work
+        </h2>
+      </Link>
+
       <p
         style={{
           fontSize: "1.2rem",
@@ -125,15 +136,13 @@ const WorkTeaser = () => {
                 borderRadius: "8px",
                 fontWeight: "bold",
                 fontSize: "1rem",
-                transition: "background 0.3s ease, transform 0.3s ease",
+                transition: "background 0.3s ease, box-shadow 0.3s ease",
               }}
               onMouseOver={(e) => {
-                e.target.style.background = "#ff8563";
-                e.target.style.transform = "scale(1.1)";
+                e.target.style.boxShadow = "0 0 10px white";
               }}
               onMouseOut={(e) => {
-                e.target.style.background = "#ff6f61";
-                e.target.style.transform = "scale(1)";
+                e.target.style.boxShadow = "none";
               }}
             >
               Learn More

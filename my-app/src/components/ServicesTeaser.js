@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServicesTeaser = () => {
   return (
@@ -26,16 +27,27 @@ const ServicesTeaser = () => {
         e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.4)";
       }}
     >
-      <h2
-        style={{
-          fontSize: "2.5rem",
-          fontWeight: "700",
-          marginBottom: "1rem",
-          textShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        Our Services
-      </h2>
+      {/* Clickable Title */}
+      <Link to="/services" style={{ textDecoration: "none", color: "inherit" }}>
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: "700",
+            marginBottom: "1rem",
+            textShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            transition: "text-shadow 0.3s ease",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.textShadow = "0 0 10px white";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.textShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+          }}
+        >
+          Our Services
+        </h2>
+      </Link>
+
       <p
         style={{
           fontSize: "1.2rem",
@@ -47,6 +59,7 @@ const ServicesTeaser = () => {
       >
         We provide cutting-edge digital solutions to help your business grow.
       </p>
+
       <div
         style={{
           display: "flex",
@@ -56,7 +69,11 @@ const ServicesTeaser = () => {
         }}
       >
         {/* Example Service Cards */}
-        {[{ title: "Web Development", icon: "💻" }, { title: "SEO", icon: "📈" }, { title: "Social Media Marketing", icon: "📱" }].map((service, index) => (
+        {[
+          { title: "Web Development", icon: "💻" },
+          { title: "SEO", icon: "📈" },
+          { title: "Social Media Marketing", icon: "📱" },
+        ].map((service, index) => (
           <div
             key={index}
             style={{
@@ -72,15 +89,13 @@ const ServicesTeaser = () => {
               fontWeight: "bold",
               fontSize: "1.2rem",
               color: "#00202e",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              transition: "box-shadow 0.3s ease",
               cursor: "pointer",
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.1)";
-              e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.4)";
+              e.currentTarget.style.boxShadow = "0 0 15px white";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
               e.currentTarget.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.3)";
             }}
           >
